@@ -1,0 +1,348 @@
+================================================================================
+SWAN SEISMIC PATCH DATASETS - COMPLETE SUMMARY
+================================================================================
+Prepared by: Xinyue Gong
+Date: 2025-11-06
+Location: /data/SWAN/
+
+================================================================================
+OVERVIEW
+================================================================================
+
+Total Datasets: 4 major collections
+Total Patches: 537,373
+Total Size: ~29 GB (compressed NPZ format)
+Patch Size: 128 x 128 (time x trace/xline/inline)
+Normalization: Patch-level, range [-1, 1]
+
+Files:
+  1. SWAN_syn_prestack.npz      (18 GB, 325,493 patches)
+  2. SWAN_syn_poststack.npz     (3.9 GB, 74,523 patches)
+  3. SWAN_real_prestack.npz     (372 MB, 6,969 patches)
+  4. SWAN_real_poststack.npz    (6.9 GB, 130,388 patches)
+
+================================================================================
+1. SYNTHETIC PRESTACK (SWAN_syn_prestack.npz)
+================================================================================
+
+File Size: 18 GB
+Total Patches: 325,493
+Source Datasets: 8
+Data Type: Shot gathers (synthetic)
+
+Constituent Datasets:
+------------------------------------------------------------
+ID  Name               Patches    Shots    Source
+------------------------------------------------------------
+0   1994bp             137,559    8,348    BP Static Correction
+1   1994bp_migration     7,557      458    BP Migration Benchmark
+2   1997bp_2.5d          1,991      121    BP 2.5D Model
+3   2004bp_velocity    117,638    7,141    BP Velocity Analysis
+4   2007bp_tti          49,599    3,009    BP TTI Anisotropy
+5   Amoco                1,086       66    BP 2D (Madagascar)
+6   Marmousi               982       60    IFP Complex Model (Madagascar)
+7   Pluto                9,081      552    SMAART JV Salt (Madagascar)
+------------------------------------------------------------
+
+Processing Parameters:
+  Patch Size: 128 x 128
+  Stride: 128 (no overlap)
+  Zero Threshold: 0.9 (discard if >90% zeros)
+  Padding: Yes for Marmousi (left side padding, info in zero_lines_in_left)
+  Direction: Shot domain (time x offset)
+  
+Special Notes:
+  - All BP models: professional benchmark datasets
+  - Marmousi: requires left-padding info (stored in metadata)
+  - Shot numbers preserved from original data
+  - Covers various geological scenarios: static correction, velocity, 
+    anisotropy, salt structures
+
+================================================================================
+2. SYNTHETIC POSTSTACK (SWAN_syn_poststack.npz)
+================================================================================
+
+File Size: 3.9 GB
+Total Patches: 74,523
+Source Datasets: 2 (both from SEAM Phase I)
+Data Type: Post-stack 3D seismic (synthetic)
+
+Constituent Datasets:
+------------------------------------------------------------
+ID  Name                Patches   Source
+------------------------------------------------------------
+0   SEAM_TIME_inline     38,596   SEAM Phase I (inline slicing)
+1   SEAM_TIME_xline      35,927   SEAM Phase I (xline slicing)
+------------------------------------------------------------
+
+Processing Parameters:
+  Patch Size: 128 x 128
+  Stride: 128 (no overlap)
+  Zero Threshold: 0.9
+  Padding: None
+  Direction: 
+    - inline version: time x xline
+    - xline version: time x inline
+  
+Source:
+  - SEAM (SEG Advanced Modeling) Phase I
+  - Complex geological model with salt bodies
+  - Dual direction processing provides different geological perspectives
+
+================================================================================
+3. REAL PRESTACK (SWAN_real_prestack.npz)
+================================================================================
+
+File Size: 372 MB
+Total Patches: 6,969
+Source Datasets: 3
+Data Type: Shot gathers (field data)
+
+Constituent Datasets:
+------------------------------------------------------------
+ID  Name         Patches  Shots  Source
+------------------------------------------------------------
+0   Alaska         1,300     58  USGS Alaska Line 31-81 (2D Land)
+1   OZ               471     40  Oz Yilmaz Textbook (2D Marine)
+2   Stratton3D     5,198    102  OSG Stratton Field (3D Marine)
+------------------------------------------------------------
+
+Processing Parameters:
+  Patch Size: 128 x 128
+  Stride: 128 (no overlap)
+  Zero Threshold: 0.9
+  Padding: Yes for Alaska (left side, info in zero_lines_in_left)
+  Direction: Shot domain (time x offset)
+  
+Geographic Distribution:
+  - Alaska: USA (NPRA, 2D onshore)
+  - OZ: Gulf of Mexico (2D marine, educational)
+  - Stratton3D: Gulf of Mexico (3D marine)
+
+Special Notes:
+  - Alaska: Variable fold, requires padding
+  - OZ: Classic textbook data from Oz Yilmaz
+  - Stratton3D: Modern 3D marine acquisition
+
+================================================================================
+4. REAL POSTSTACK (SWAN_real_poststack.npz)
+================================================================================
+
+File Size: 6.9 GB
+Total Patches: 130,388
+Source Datasets: 7
+Data Type: Post-stack 3D seismic (field data)
+
+Constituent Datasets:
+------------------------------------------------------------
+ID  Name         Patches   Direction  Zero%   Source
+------------------------------------------------------------
+0   KAHU-IN       85,437   inline     0.43    New Zealand Taranaiki Basin
+1   F3-IN         13,290   inline     4.55    Netherlands North Sea
+2   KERRY-X       11,597   xline      9.90    New Zealand Taranaiki Basin
+3   BOEM-X         7,302   xline      2.16    USA Gulf of Mexico
+4   WAIHAPA-X      5,795   xline      2.81    New Zealand Taranaiki Basin
+5   TEAPOT         2,860   unknown    7.56    USA Wyoming (DoE)
+6   WAIPUKU-X      4,107   xline     30.15    New Zealand Taranaiki Basin
+------------------------------------------------------------
+
+Processing Parameters:
+  Patch Size: 128 x 128
+  Stride: 128 (no overlap)
+  Zero Threshold: 0.9
+  Padding: None
+  Direction Notation:
+    - "-IN" suffix: inline direction (time x xline)
+    - "-X" suffix: xline direction (time x inline)
+    - No suffix: direction uncertain or 2D continuous
+  
+Geographic Distribution:
+  - New Zealand (Taranaiki Basin): 82.8% (4 datasets)
+  - Netherlands (North Sea): 10.2% (F3 benchmark)
+  - USA: 7.8% (BOEM Gulf + TeapotDome Wyoming)
+
+
+Special Notes:
+  - KAHU-IN: Largest dataset, best quality
+  - F3-IN: International benchmark data
+  - Direction marking enables geometric filtering
+  - WAIPUKU-X: Higher zero ratio, use with quality filter
+
+================================================================================
+COMMON PROCESSING STANDARDS
+================================================================================
+
+All 4 datasets follow unified standards:
+
+Patch Extraction:
+  - Size: 128 x 128 samples
+  - Stride: 128 (non-overlapping)
+  - Zero threshold: 0.9 (90%) (in most case)
+
+Normalization:
+  - Method: Patch-level normalization
+  - Each patch independently normalized by its max absolute value
+  - Output range: [-1, 1]
+  - Original max values stored in patch_max_value for denormalization
+
+Quality Control:
+  - Patches with >90% zero values are discarded
+  - Zero ratio stored for each patch
+  - Enables post-hoc quality filtering
+
+Metadata Structure (13 keys):
+  Core:
+    - patches: (N, 128, 128) float32
+  
+  Standard (11 keys):
+    - shot_numbers, patch_indices
+    - position_y, position_x
+    - time_start, time_end
+    - trace_start, trace_end
+    - patch_max_value, zero_ratio
+    
+  Tracking (2 keys):
+    - global_patch_id: unique ID (0 to N-1)
+    - dataset_name: source dataset identifier
+
+Special Keys (when applicable):
+  - zero_lines_in_left: left padding count (Marmousi, Alaska)
+  - original_traces: original trace count before padding
+
+================================================================================
+DATA USAGE GUIDELINES
+================================================================================
+
+Loading Data:
+  import numpy as np
+  data = np.load('/data/SWAN/SWAN_syn_prestack.npz')
+  patches = data['patches']
+
+Dataset Filtering:
+  # By dataset name
+  mask = data['dataset_name'] == '1994bp'
+  bp_patches = data['patches'][mask]
+  
+  # By quality
+  quality_mask = data['zero_ratio'] < 0.05
+  high_quality = data['patches'][quality_mask]
+  
+
+Denormalization:
+  original_amplitude = patches[i] * np.abs(data['patch_max_value'][i])
+
+Handling Padding (prestack):
+  # For Marmousi or Alaska
+  padding = data['zero_lines_in_left'][i]
+  original_width = data['original_traces'][i]
+  if padding > 0:
+      # Remove padding
+      patch_unpadded = patch[:, padding:padding+original_width]
+
+================================================================================
+DATA SOURCES AND ACKNOWLEDGMENTS
+================================================================================
+
+Synthetic Data:
+  - BP Models: Provided by BP (now Argo Energy)
+  - SEAM: SEG Advanced Modeling Program
+  - Madagascar: Open-source seismic data repository
+    * Marmousi: Institut Francais du Petrole (IFP)
+    * Pluto: SMAART Joint Venture
+    * Amoco: BP Exploration
+
+Real Data:
+  - USGS: Alaska National Petroleum Reserve (NPRA)
+  - Oz Yilmaz: Seismic Data Analysis textbook
+  - OSG: Offshore Seismic Group (Stratton Field)
+  - New Zealand: Government open data (Taranaiki Basin)
+  - Netherlands: dGB Earth Sciences (F3 Demo)
+  - BOEM: US Bureau of Ocean Energy Management
+  - DoE: US Department of Energy (TeapotDome)
+
+Processing:
+  - Madagascar: http://www.ahay.org/
+
+
+================================================================================
+DATASET STATISTICS SUMMARY
+================================================================================
+
+By Type:
+  Synthetic: 400,016 patches (74.4%)
+    - Prestack: 325,493 (60.6%)
+    - Poststack: 74,523 (13.9%)
+  
+  Real: 137,357 patches (25.6%)
+    - Prestack: 6,969 (1.3%)
+    - Poststack: 130,388 (24.3%)
+
+By Acquisition:
+  Prestack (Shot): 332,462 patches (61.9%)
+  Poststack (Migrated): 204,911 patches (38.1%)
+
+By Source:
+  BP Models: 314,344 patches (58.5%)
+  Madagascar: 11,149 patches (2.1%)
+  SEAM: 74,523 patches (13.9%)
+  USGS: 1,300 patches (0.2%)
+  Other Real: 136,057 patches (25.3%)
+
+Quality Distribution (Real Poststack):
+  High Quality (Zero <5%): 111,824 patches (85.8% of real poststack)
+  Excellent (Zero <3%): 98,534 patches (75.6% of real poststack)
+
+================================================================================
+VERSION INFORMATION
+================================================================================
+
+Dataset Version: 1.0
+Merge Date: 2025-11-06
+Format: NumPy compressed archive (.npz)
+Python Version: 3.x
+NumPy Version: Compatible with 1.x+
+
+File Locations:
+  Primary: /data/SWAN/
+  Source: /home/xg3753/SWAN/BIGDATA-*/
+
+Documentation:
+  - Each BIGDATA-* directory contains MERGE_INFO.txt
+  - Original dataset directories contain DATASET_INFO.txt
+  - Processing scripts available in BIGDATA-* directories
+
+Contact:
+  Xinyue Gong
+  Suitable for deep learning applications in seismic processing
+
+================================================================================
+CITATIONS AND REFERENCES
+================================================================================
+
+When using these datasets, please cite:
+
+1. BP Models:
+   - Provided by BP (now Argo Energy)
+   - Available through SEG and Madagascar repositories
+
+2. SEAM Project:
+   - SEG Advanced Modeling Program
+   - https://seg.org/About-SEG/Committees/SEAM
+
+3. Madagascar:
+   - Fomel et al., Madagascar open-source software project
+   - http://www.ahay.org/
+
+4. Field Data:
+   - Cite original data providers (USGS, BOEM, New Zealand Gov., etc.)
+   - Madagascar repository for processed versions
+
+5. Processing Methodology:
+   - Patch-level normalization for deep learning
+   - 128x128 patch size standard for seismic applications
+
+================================================================================
+END OF SUMMARY
+================================================================================
+
+
