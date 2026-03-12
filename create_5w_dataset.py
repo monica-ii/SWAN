@@ -21,27 +21,27 @@ from tqdm import tqdm
 # Configuration
 RANDOM_SEED = 42
 TOTAL_SAMPLES = 50000
-OUTPUT_DIR = "/data/SWAN/5W_Train"
+OUTPUT_DIR = "./data/SWAN/5W_Train"
 
 # Data sources and ratios
 DATA_SOURCES = {
     'syn_prestack': {
-        'path': '/data/SWAN/SWAN_syn_prestack.npz',
+        'path': './data/SWAN/SWAN_syn_prestack.npz',
         'ratio': 0.4,  # 40%
         'count': 20000
     },
     'syn_poststack': {
-        'path': '/data/SWAN/SWAN_syn_poststack.npz',
+        'path': './data/SWAN/SWAN_syn_poststack.npz',
         'ratio': 0.2,  # 20%
         'count': 10000
     },
     'real_prestack': {
-        'path': '/data/SWAN/SWAN_real_prestack.npz',
+        'path': './data/SWAN/SWAN_real_prestack.npz',
         'ratio': 0.1,  # 10%
         'count': 5000
     },
     'real_poststack': {
-        'path': '/data/SWAN/SWAN_real_poststack.npz',
+        'path': './data/SWAN/SWAN_real_poststack.npz',
         'ratio': 0.3,  # 30%
         'count': 15000
     }
