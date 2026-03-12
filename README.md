@@ -45,7 +45,7 @@ SWAN/
 ├── README.md               # This documentation
 ├── DATASET_SUMMARY.txt     # In-depth statistical breakdown
 ├── Main.pdf                # Accompanying research paper (Details on SWAN)
-├── create_5w_dataset.py    # Script to sample a 50k dataset for training
+├── create_50k_dataset.py    # Script to sample a 50k dataset for training
 ├── dataset/                # Directory to store the downloaded .npz files
 └── DEMO/                   # Visualization scripts and sample output images
     ├── visualize_samples.py
@@ -77,13 +77,13 @@ high_quality_patches = patches[mask]
 ```
 
 ### 3. Generating a 50k Training Subset
-SWAN includes a script (`create_5w_dataset.py`) to generate a representative, 50,000-patch training dataset. The script randomly samples from all four categories with predefined ratios (40% syn_prestack, 20% syn_poststack, 10% real_prestack, 30% real_poststack):
+SWAN includes a script (`create_50k_dataset.py`) to generate a representative, 50,000-patch training dataset. The script randomly samples from all four categories with predefined ratios (40% syn_prestack, 20% syn_poststack, 10% real_prestack, 30% real_poststack):
 
 ```bash
-python create_5w_dataset.py
+python create_50k_dataset.py
 ```
 
-This will produce a `5W_Train/` folder containing individual `.npy` patches, suitable for building data loaders in PyTorch or TensorFlow for your custom neural network or foundation model.
+This will produce a `50k_Train/` folder containing individual `.npy` patches, suitable for building data loaders in PyTorch or TensorFlow for your custom neural network or foundation model.
 
 ### 4. Visualization Examples
 Explore the diversity of the dataset using the scripts in `DEMO/`. For example, `visualize_samples.py` will generate a visualization highlighting differences between the four types of data.
