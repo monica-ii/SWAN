@@ -31,10 +31,10 @@ The dataset is grouped into four major categories, spanning both prestack (shot 
 
 The SWAN dataset files are hosted on Google Drive. Please download the `.npz` files into the `dataset/` folder or update the file paths in your scripts accordingly.
 
-- `SWAN_syn_prestack.npz` (18 GB) — [Download Link](#https://utexas.box.com/s/ntlnd31yghabsyc2umid68cxs9lp1oco) *(Coming Soon)*
-- `SWAN_syn_poststack.npz` (3.9 GB) — [Download Link](#https://utexas.box.com/s/9xsl1zb4iee71rvjdj1thj3pwvb5mkjl) *(Coming Soon)*
-- `SWAN_real_prestack.npz` (372 MB) — [Download Link](#https://utexas.box.com/s/ex48pyuhllp9fg32c4niinl0609denug) *(Coming Soon)*
-- `SWAN_real_poststack.npz` (6.9 GB) — [Download Link](#https://utexas.box.com/s/9q61ndvav17ny1poc3cg5yhrjktcahf3) *(Coming Soon)*
+- `SWAN_syn_prestack.npz` (18 GB) — [Download Link](https://utexas.box.com/s/ntlnd31yghabsyc2umid68cxs9lp1oco) 
+- `SWAN_syn_poststack.npz` (3.9 GB) — [Download Link](https://utexas.box.com/s/9xsl1zb4iee71rvjdj1thj3pwvb5mkjl) 
+- `SWAN_real_prestack.npz` (372 MB) — [Download Link](https://utexas.box.com/s/ex48pyuhllp9fg32c4niinl0609denug) 
+- `SWAN_real_poststack.npz` (6.9 GB) — [Download Link](https://utexas.box.com/s/9q61ndvav17ny1poc3cg5yhrjktcahf3) *(Coming Soon)*
 
 ## 🚀 Getting Started
 
