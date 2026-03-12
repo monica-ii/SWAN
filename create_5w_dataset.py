@@ -21,7 +21,7 @@ from tqdm import tqdm
 # Configuration
 RANDOM_SEED = 42
 TOTAL_SAMPLES = 50000
-OUTPUT_DIR = "./dataset/5W_Train"
+OUTPUT_DIR = "./dataset/50K_Train"
 
 # Data sources and ratios
 DATA_SOURCES = {
