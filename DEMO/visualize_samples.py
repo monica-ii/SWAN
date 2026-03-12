@@ -10,12 +10,12 @@ from pathlib import Path
 
 # Configuration
 DATA_FILES = [
-    ('/data/SWAN/SWAN_real_poststack.npz', 'Real Poststack', '#FF6B6B'),    # Red
-    ('/data/SWAN/SWAN_real_prestack.npz', 'Real Prestack', '#4ECDC4'),      # Cyan
-    ('/data/SWAN/SWAN_syn_poststack.npz', 'Syn Poststack', '#45B7D1'),      # Blue
-    ('/data/SWAN/SWAN_syn_prestack.npz', 'Syn Prestack', '#96CEB4'),        # Green
+    ('./dataset/SWAN_real_poststack.npz', 'Real Poststack', '#FF6B6B'),    # Red
+    ('./dataset/SWAN_real_prestack.npz', 'Real Prestack', '#4ECDC4'),      # Cyan
+    ('./dataset/SWAN_syn_poststack.npz', 'Syn Poststack', '#45B7D1'),      # Blue
+    ('./dataset/SWAN_syn_prestack.npz', 'Syn Prestack', '#96CEB4'),        # Green
 ]
-OUTPUT_FILE = '/data/SWAN/DEMO/samples_4_types.png'
+OUTPUT_FILE = './dataset/DEMO/samples_4_types.png'
 
 N_ROWS = 12
 N_COLS = 20
