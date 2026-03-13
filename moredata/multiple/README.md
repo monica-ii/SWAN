@@ -111,15 +111,9 @@ docs/sample_primary.png
 
 ## Download
 
-Download the dataset from the project repository:
+Download the dataset from
 
-https://github.com/YOUR_REPO/releases/download/dataset/SWAN_syn_prestack_multiple.npz
-
-or using the command line:
-
-```bash
-wget https://github.com/YOUR_REPO/releases/download/dataset/SWAN_syn_prestack_multiple.npz
-```
+https://utexas.box.com/s/1wopeu2sff519otbus13sriqkgvvf553
 
 ---
 
@@ -217,18 +211,3 @@ SWAN Synthetic Prestack Dataset for Multiple Attenuation
 ```
 
 ---
-
-## License
-
-Example:
-
-```
-Creative Commons Attribution 4.0 (CC-BY-4.0)
-```
-
----
-
-## Maintainer
-
-**Y. Chen**  
-Seismic Imaging & Machine Learning Research
