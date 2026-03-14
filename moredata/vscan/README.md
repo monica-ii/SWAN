@@ -52,8 +52,6 @@ These characteristics make the dataset highly valuable for testing
 
 Download the dataset here: https://utexas.box.com/s/4g60d772kldhu9vhi6cfhpq3q9jribkk
 
-    [Download SWAN_real_vscan dataset](<https://utexas.box.com/s/4g60d772kldhu9vhi6cfhpq3q9jribkk>)
-
 ------------------------------------------------------------------------
 
 ## File Format
