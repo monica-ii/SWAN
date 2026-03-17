@@ -100,20 +100,29 @@ Example visualization output:
 - **Quality Control**: The `zero_ratio` metadata allows for thresholding out empty or non-informative patches based on your model's robustness.
 - **Denormalization**: Patches are scaled to `[-1, 1]` for DL efficiency. Original true amplitudes can be restored using the corresponding `patch_max_value`.
 
-## 📎 Citation & Contact
-If you use the SWAN dataset in your research, please refer to the details and methodology outlined in our [paper](Main.pdf) and consider citing:
+## 📎 Citation
 
-```bibtex
-@article{swan2026,
+If you use the SWAN dataset in your research, please cite:
+
+Gong, X., Fomel, S., and Chen, Y., 2026.  
+Training a generalizable diffusion model for seismic data processing using a large-scale open-source waveform dataset.  
+arXiv:2603.13645.  
+https://arxiv.org/abs/2603.13645
+
+BibTeX:
+
+@article{gong2026swan,
   title={Training a generalizable diffusion model for seismic data processing using a large-scale open-source waveform dataset},
-  author={Gong, Xinyue and others},
-  year={2026},
-  journal={TBD}
+  author={Gong, Xinyue and Fomel, Sergey and Chen, Yangkang},
+  journal={arXiv preprint arXiv:2603.13645},
+  year={2026}
 }
-```
 
-**Maintainer**: Xinyue Gong
-For any questions regarding the dataset or scripts, please open an issue in the GitHub repository or consult `DATASET_SUMMARY.txt`.
+## Maintainer
 
+Xinyue Gong
+
+For any questions regarding the dataset or scripts, please open an issue in this repository.  
+For dataset structure and statistics, please see `DATASET_SUMMARY.txt`.
 
 
