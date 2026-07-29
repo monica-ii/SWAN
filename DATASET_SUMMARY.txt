@@ -304,7 +304,7 @@ NumPy Version: Compatible with 1.x+
 
 File Locations:
   Primary: /data/SWAN/
-  Source: /home/xg3753/SWAN/BIGDATA-*/
+  Source: /path/to/SWAN/BIGDATA-*/
 
 Documentation:
   - Each BIGDATA-* directory contains MERGE_INFO.txt
