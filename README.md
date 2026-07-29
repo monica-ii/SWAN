@@ -44,7 +44,6 @@ The SWAN dataset files are hosted on the UT box (https://utexas.box.com/s/cziybf
 SWAN/
 ├── README.md               # This documentation
 ├── DATASET_SUMMARY.txt     # In-depth statistical breakdown
-├── Main.pdf                # Accompanying research paper (Details on SWAN)
 ├── create_50k_dataset.py    # Script to sample a 50k dataset for training
 ├── dataset/                # Directory to store the downloaded .npz files
 └── DEMO/                   # Visualization scripts and sample output images
