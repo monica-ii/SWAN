@@ -45,7 +45,6 @@ SWAN/
 ├── README.md               # This documentation
 ├── DATASET_SUMMARY.txt     # In-depth statistical breakdown
 ├── create_50k_dataset.py    # Script to sample a 50k dataset for training
-├── dataset/                # Directory to store the downloaded .npz files
 └── DEMO/                   # Visualization scripts and sample output images
     ├── visualize_samples.py
     └── samples_4_types.png
